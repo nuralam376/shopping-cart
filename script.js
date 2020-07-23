@@ -10,7 +10,8 @@ iphonePlus.addEventListener("click", function () {
 
 	const iphoneTotalPrice = productTotalPrice(
 		"iphoneTotalPrice",
-		iphoneCountNumber
+		iphoneCountNumber,
+		iphoneCurrentTotalPriceNumber
 	);
 });
 
@@ -22,18 +23,49 @@ iphoneMinus.addEventListener("click", function () {
 
 	const iphoneTotalPrice = productTotalPrice(
 		"iphoneTotalPrice",
-		iphoneCountNumber
+		iphoneCountNumber,
+		iphoneCurrentTotalPriceNumber
 	);
 });
 
-function productTotalPrice(id, iphoneCountNumber) {
-	const totalPrice = iphoneCurrentTotalPriceNumber * iphoneCountNumber;
+// iphone Case Plus event handler
+const iphoneCasePlus = document.getElementById("iphoneCasePlus");
+
+const iphoneCaseTotalPrice = document.getElementById("iphoneCaseTotalPrice")
+	.innerText;
+const iphoneCaseTotalPriceNumber = parseFloat(iphoneCaseTotalPrice);
+
+iphoneCasePlus.addEventListener("click", function () {
+	const iphonecaseCount = productCount("iphoneCaseCount", 1);
+
+	const iphoneCaseTotalPrice = productTotalPrice(
+		"iphoneCaseTotalPrice",
+		iphonecaseCount,
+		iphoneCaseTotalPriceNumber
+	);
+});
+
+// iphone Case Minus event handler
+const iphoneCaseMinus = document.getElementById("iphoneCaseMinus");
+
+iphoneCaseMinus.addEventListener("click", function () {
+	const iphoneCaseMinusCount = productCount("iphoneCaseCount", -1);
+
+	const iphoneCaseTotalPrice = productTotalPrice(
+		"iphoneCaseTotalPrice",
+		iphoneCaseMinusCount,
+		iphoneCaseTotalPriceNumber
+	);
+});
+
+function productTotalPrice(id, iphoneCountNumber, productPriceNumber) {
+	const totalPrice = productPriceNumber * iphoneCountNumber;
 	document.getElementById(id).innerText = totalPrice;
 	return totalPrice;
 }
 
 function productCount(id, count) {
-	const iphoneCount = document.getElementById("iphoneCount").value;
+	const iphoneCount = document.getElementById(id).value;
 	let iphoneCountNumber = parseInt(iphoneCount);
 	iphoneCountNumber = iphoneCountNumber + count;
 	iphoneCountNumber = iphoneCountNumber >= 0 ? iphoneCountNumber : 0;
