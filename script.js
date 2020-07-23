@@ -1,14 +1,17 @@
+// Calculate the total amount of cart products
 function calculateTotal(subtotal, tax) {
 	const total = subtotal + tax;
 	document.getElementById("total").innerText = total;
 }
 
+// Calculate the 5% tax of the subtotal amount of the products
 function calculateTax(subtotal) {
 	const tax = subtotal > 0 ? (subtotal + 5) / 100 : 0;
 	document.getElementById("tax").innerText = tax;
 	calculateTotal(subtotal, tax);
 }
 
+// Calculate the subtotal amounts of the products
 function calculateSubtotal() {
 	const subtotal = document.getElementById("subtotal").innerText;
 	const subtotalNumber = parseFloat(subtotal);
@@ -17,12 +20,14 @@ function calculateSubtotal() {
 	calculateTax(newSubtotal);
 }
 
+// Calculate the total price after incrementing the quantity of the product
 function productTotalPrice(id, iphoneCountNumber, productPriceNumber) {
 	const totalPrice = productPriceNumber * iphoneCountNumber;
 	document.getElementById(id).innerText = totalPrice;
 	return totalPrice;
 }
 
+// Calculate the total quantity of the products
 function productCount(id, count) {
 	const iphoneCount = document.getElementById(id).value;
 	let iphoneCountNumber = parseInt(iphoneCount);
