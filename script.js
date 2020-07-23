@@ -39,7 +39,6 @@ function productCount(id, count) {
 
 // iphone Plus event handler
 const iphonePlus = document.getElementById("iphonePlus");
-
 const iphoneCurrentTotalPrice = document.getElementById("iphoneTotalPrice")
 	.innerText;
 const iphoneCurrentTotalPriceNumber = parseFloat(iphoneCurrentTotalPrice);
@@ -128,4 +127,24 @@ iphoneCaseRemove.addEventListener("click", function (event) {
 	);
 	iphoneCaseNewTotalPrice = 0;
 	calculateSubtotal();
+});
+
+// Checkout
+const checkout = document.getElementById("checkout");
+
+checkout.addEventListener("click", function () {
+	alert(
+		"Thank you for purchasing from our website. You will be notified soon."
+	);
+
+	// Clear the previous values
+	document.getElementById("total").innerText = 0;
+	document.getElementById("tax").innerText = 0;
+	document.getElementById("subtotal").innerText = 0;
+	document.getElementById("iphoneCount").value = 0;
+	document.getElementById("iphoneCaseCount").value = 0;
+	document.getElementById("iphoneCaseTotalPrice").innerText = 0;
+	document.getElementById("iphoneTotalPrice").innerText = 0;
+	iphoneCaseNewTotalPrice = 0;
+	iphoneTotalPrice = 0;
 });
