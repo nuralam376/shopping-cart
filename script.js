@@ -1,3 +1,37 @@
+function calculateTotal(subtotal, tax) {
+	const total = subtotal + tax;
+	document.getElementById("total").innerText = total;
+}
+
+function calculateTax(subtotal) {
+	const tax = subtotal > 0 ? (subtotal + 5) / 100 : 0;
+	document.getElementById("tax").innerText = tax;
+	calculateTotal(subtotal, tax);
+}
+
+function calculateSubtotal() {
+	const subtotal = document.getElementById("subtotal").innerText;
+	const subtotalNumber = parseFloat(subtotal);
+	const newSubtotal = iphoneCaseNewTotalPrice + iphoneTotalPrice;
+	document.getElementById("subtotal").innerText = newSubtotal;
+	calculateTax(newSubtotal);
+}
+
+function productTotalPrice(id, iphoneCountNumber, productPriceNumber) {
+	const totalPrice = productPriceNumber * iphoneCountNumber;
+	document.getElementById(id).innerText = totalPrice;
+	return totalPrice;
+}
+
+function productCount(id, count) {
+	const iphoneCount = document.getElementById(id).value;
+	let iphoneCountNumber = parseInt(iphoneCount);
+	iphoneCountNumber = iphoneCountNumber + count;
+	iphoneCountNumber = iphoneCountNumber >= 0 ? iphoneCountNumber : 0;
+	document.getElementById(id).value = iphoneCountNumber;
+	return iphoneCountNumber;
+}
+
 // iphone Plus event handler
 const iphonePlus = document.getElementById("iphonePlus");
 
@@ -67,36 +101,26 @@ iphoneCaseMinus.addEventListener("click", function () {
 	calculateSubtotal();
 });
 
-function calculateSubtotal() {
-	const subtotal = document.getElementById("subtotal").innerText;
-	const subtotalNumber = parseFloat(subtotal);
-	const newSubtotal = iphoneCaseNewTotalPrice + iphoneTotalPrice;
-	document.getElementById("subtotal").innerText = newSubtotal;
-	calculateTax(newSubtotal);
-}
+// Iphone remove
+const iphoneRemove = document.getElementById("iphoneremove");
 
-function calculateTax(subtotal) {
-	const tax = (subtotal + 5) / 100;
-	document.getElementById("tax").innerText = tax;
-	calculateTotal(subtotal, tax);
-}
+iphoneRemove.addEventListener("click", function (event) {
+	const cartItem = document.getElementById("cart1");
+	event.target.parentNode.parentNode.parentNode.parentNode.removeChild(
+		cartItem
+	);
+	iphoneTotalPrice = 0;
+	calculateSubtotal();
+});
 
-function calculateTotal(subtotal, tax) {
-	const total = subtotal + tax;
-	document.getElementById("total").innerText = total;
-}
+// IphoneCase remove
+const iphoneCaseRemove = document.getElementById("iphonecaseremove");
 
-function productTotalPrice(id, iphoneCountNumber, productPriceNumber) {
-	const totalPrice = productPriceNumber * iphoneCountNumber;
-	document.getElementById(id).innerText = totalPrice;
-	return totalPrice;
-}
-
-function productCount(id, count) {
-	const iphoneCount = document.getElementById(id).value;
-	let iphoneCountNumber = parseInt(iphoneCount);
-	iphoneCountNumber = iphoneCountNumber + count;
-	iphoneCountNumber = iphoneCountNumber >= 0 ? iphoneCountNumber : 0;
-	document.getElementById(id).value = iphoneCountNumber;
-	return iphoneCountNumber;
-}
+iphoneCaseRemove.addEventListener("click", function (event) {
+	const cartItem = document.getElementById("cart2");
+	event.target.parentNode.parentNode.parentNode.parentNode.removeChild(
+		cartItem
+	);
+	iphoneCaseNewTotalPrice = 0;
+	calculateSubtotal();
+});
