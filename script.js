@@ -147,4 +147,5 @@ checkout.addEventListener("click", function () {
 	document.getElementById("iphoneTotalPrice").innerText = 0;
 	iphoneCaseNewTotalPrice = 0;
 	iphoneTotalPrice = 0;
+	window.reload();
 });
