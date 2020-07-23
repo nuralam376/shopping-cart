@@ -29,16 +29,16 @@
 
 								<div class="col-md-5 center-item">
 									<div class="input-group number-spinner">
-										<button id="iphoneQuantityRemove" class="btn btn-default">
+										<button id="iphoneMinus" class="btn btn-default">
 											<i class="fas fa-minus"></i>
 										</button>
 										<input
 											type="text"
-											id="iphoneQuantity"
+											id="iphoneCount"
 											class="form-control text-center"
 											value="1"
 										/>
-										<button id="iphoneQuantityAdd" class="btn btn-default">
+										<button id="iphonePlus" class="btn btn-default">
 											<i class="fas fa-plus"></i>
 										</button>
 									</div>
@@ -56,19 +56,20 @@
 								</div>
 								<div class="col-md-5 center-item">
 									<div class="input-group number-spinner">
-										<button class="btn btn-default">
+										<button id="iphoneCaseMinus" class="btn btn-default">
 											<i class="fas fa-minus"></i>
 										</button>
 										<input
 											type="text"
+											id="iphoneCaseCount"
 											class="form-control text-center"
 											value="1"
 										/>
-										<button class="btn btn-default">
+										<button id="" iphoneCasePlus class="btn btn-default">
 											<i class="fas fa-plus"></i>
 										</button>
 									</div>
-									<h5>$59</h5>
+									<h5>$<span id="iphoneCaseTotalPrice">59</span></h5>
 									<img src="images/remove.png" alt="" class="remove-item" />
 								</div>
 							</div>
@@ -83,7 +84,7 @@
 								</div>
 
 								<div class="col-md-4 status">
-									<h5>$<span id="subtotal">1,278</span></h5>
+									<h5>$<span id="subtotal">1278</span></h5>
 									<h5>$<span id="tax">0</span></h5>
 									<h5>$<span id="total">1,278</span></h5>
 								</div>
